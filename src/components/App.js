@@ -19,15 +19,15 @@ class App extends Component {
     }
   }
 
-  // tempAlert = (msg, duration) => {
-  //   let el = document.createElement("div");
-  //   el.classList.add("alert-box")
-  //   el.innerHTML = msg;
-  //   setTimeout(function () {
-  //     el.parentNode.removeChild(el);
-  //   }, duration);
-  //   document.body.appendChild(el);
-  // }
+  tempAlert = (msg, duration) => {
+    let el = document.createElement("div");
+    el.classList.add("alert-box")
+    el.innerHTML = msg;
+    setTimeout(function () {
+      el.parentNode.removeChild(el);
+    }, duration);
+    document.body.appendChild(el);
+  }
 
 
   handleChange = (e) => {
@@ -95,6 +95,14 @@ class App extends Component {
 
   }
 
+  changeBoxHandler = (checkbox) => {
+    this.setState({
+      arrayOfProducts: this.state.arrayOfProducts.map(element =>
+        element.id === checkbox.id ?
+          { ...element, done: !element.done } : element)
+    })
+  }
+
 
 
 
@@ -110,7 +118,7 @@ class App extends Component {
             <thead><tr>
               <th>Produkt</th><th>Kcal</th><th>Szt.</th><th>Usuń</th>
             </tr></thead>
-            <tbody><ProductRow /></tbody>
+            <tbody><ProductRow arrayOfProducts={this.state.arrayOfProducts} callback={this.changeBoxHandler} /></tbody>
           </table>
           <div className="bg-secondary text-white text-center p-2">
             <div>Spożyte produkty</div>
@@ -119,7 +127,7 @@ class App extends Component {
             <thead><tr>
               <th>Produkt</th><th>Kalorie</th>
             </tr></thead>
-            <tbody><DeletedProductRow /></tbody>
+            <tbody><DeletedProductRow arrayOfProducts={this.state.arrayOfProducts} /></tbody>
           </table>
           <div className="resultBlock">kcal</div>
         </div>
