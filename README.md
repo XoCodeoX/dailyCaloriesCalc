@@ -7,31 +7,11 @@ The aim of the project was to create an application for calculating the daily ca
 ## TECHNOLOGIES USED IN PROJECT:
 HTML, CSS, JavaScript, ReactJS, Bootstrap.
 
-## Available Scripts
+## How to run ?
+ 1. Clone repository : git clone https://github.com/XoCodeoX/dailyCaloriesCalc.git
+ 2. Go into dailyCalioresCalc file : cd dailyCaloriesCalc
+ 3. Install packeges : npm i
+ 4. Run project on local server : npm start 
 
-In the project directory, you can run:
-
-## `npm start`
-
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.
-You will also see any lint errors in the console.
-
-## `npm test`
-
-Launchs the test runner in the interactive watch mode.
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-## `npm run build`
-
-Builds the app for production to the `build` folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 
