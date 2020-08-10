@@ -1,7 +1,21 @@
-input{
-  margin-bottom: 30px;
-}
 
+
+.alert-box{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform:translateX(-50%);
+  padding: 5px;
+  width: 150px;
+  border-radius: 15px;
+  color: #fff;
+  background-color: darkslateblue;
+  line-height: 50px;
+  font-size: 1.3rem;
+  opacity: 90%;
+  font-weight: bold;
+  text-align: center;
+}
 
 .resultBlock{
   height: 6vh;
