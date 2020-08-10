@@ -3,7 +3,12 @@ import React, { Component } from 'react';
 class DeletedProductRow extends Component {
     render() {
         return (
-            <div>RandomText</div>
+            this.props.arrayOfProducts.map(element => element.done ?
+                <tr key={element.id}>
+                    <td>{element.productName}</td>
+                    <td>{element.calories}</td>
+                    <td>{element.quantity}</td>
+                </tr> : null)
         )
     }
 }
