@@ -9,15 +9,15 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      arrayOfProducts: [
-        { id: 0, productName: "Bułka", calories: 30, quantity: 3, done: false }
-      ],
+      arrayOfProducts: [],
       inputProductName: "",
       inputProductCaloriesValue: "",
       inputQuantityValue: "",
-      calloriesSummary: "",
+      caloriesSummary: 0,
     }
   }
+
+  //Function used to show alert after add product 
 
   tempAlert = (msg, duration) => {
     let el = document.createElement("div");
@@ -79,6 +79,7 @@ class App extends Component {
           quantity: this.state.inputQuantityValue,
           done: false,
         }],
+        caloriesSummary: this.state.caloriesSummary += (parseInt(this.state.inputProductCaloriesValue) * parseInt(this.state.inputQuantityValue)),
         inputProductName: "",
         inputProductCaloriesValue: "",
         inputQuantityValue: "",
@@ -95,7 +96,10 @@ class App extends Component {
 
   }
 
+  //Function used to change checkbox value 
+
   changeBoxHandler = (checkbox) => {
+
     this.setState({
       arrayOfProducts: this.state.arrayOfProducts.map(element =>
         element.id === checkbox.id ?
@@ -103,7 +107,26 @@ class App extends Component {
     })
   }
 
+  //Function used to delete single element from first list 
 
+  deleteElements = (element) => {
+
+    this.setState({
+      arrayOfProducts: this.state.arrayOfProducts.filter(e => e.id !== element.id),
+      caloriesSummary: this.state.caloriesSummary - parseInt(element.quantity) * parseInt(element.calories)
+    })
+
+  }
+
+  //Function used to delete all elements from eated product list
+
+  removeProducts = () => {
+
+    this.setState({
+      arrayOfProducts: this.state.arrayOfProducts.filter(element => !element.done),
+      caloriesSummary: 0,
+    })
+  }
 
 
   render() {
@@ -111,25 +134,34 @@ class App extends Component {
       <div className="container">
         <Header />
         <div className="containter-fluid">
-          <FormElements callback={this.handleChange}
+          <FormElements
+            callback={this.handleChange}
             addProduct={this.addProduct}
             productName={this.state.inputProductName} productCalories={this.state.inputProductCaloriesValue} productQuantity={this.state.inputQuantityValue} />
           <table className="table table-striped table-bordered">
             <thead><tr>
-              <th>Produkt</th><th>Kcal</th><th>Szt.</th><th>Usuń</th>
+              <th>Produkt</th><th>Kcal</th><th>Szt.</th><th>Przenieś</th><th>Usuń</th>
             </tr></thead>
-            <tbody><ProductRow arrayOfProducts={this.state.arrayOfProducts} callback={this.changeBoxHandler} /></tbody>
+            <tbody>
+              <ProductRow
+                arrayOfProducts={this.state.arrayOfProducts}
+                callback={this.changeBoxHandler} deleterBack={this.deleteElements} />
+            </tbody>
           </table>
           <div className="bg-secondary text-white text-center p-2">
             <div>Spożyte produkty</div>
           </div>
           <table className="table table-striped table-bordered">
             <thead><tr>
-              <th>Produkt</th><th>Kalorie</th>
+              <th>Produkt</th><th>Kalorie</th><th>Szt.</th>
             </tr></thead>
-            <tbody><DeletedProductRow arrayOfProducts={this.state.arrayOfProducts} /></tbody>
+            <tbody>
+              <DeletedProductRow
+                arrayOfProducts={this.state.arrayOfProducts} />
+            </tbody>
           </table>
-          <div className="resultBlock">kcal</div>
+          <div className="resultBlock">{this.state.caloriesSummary} kcal</div>
+          <button onClick={this.removeProducts} className="btn btn-dark mt-1 mb-4">Wyczyść listę</button>
         </div>
       </div>
     )
