@@ -5,6 +5,8 @@ import FormElements from './FormElements';
 import ProductRow from './ProductRow';
 import DeletedProductRow from './DeletedProductRow';
 
+//Main component
+
 class App extends Component {
   constructor(props) {
     super(props);

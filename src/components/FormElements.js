@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
+//Component contains form elements (inputs,buttons)
+
 class FormElements extends Component {
     render() {
         return (
             <div className="my-1">
+
                 <input type="text"
                     name="prodName"
                     className="form-control mb-3"

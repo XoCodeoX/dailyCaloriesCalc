@@ -1,5 +1,7 @@
 
 
+/* Alert box styles */
+
 .alert-box{
   position: absolute;
   top: 0;
@@ -16,6 +18,8 @@
   font-weight: bold;
   text-align: center;
 }
+
+/* Result element styles */
 
 .resultBlock{
   height: 6vh;

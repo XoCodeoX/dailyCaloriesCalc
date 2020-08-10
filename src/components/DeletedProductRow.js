@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+//Component responsible for move component to bottom list 
+
 class DeletedProductRow extends Component {
     render() {
         return (

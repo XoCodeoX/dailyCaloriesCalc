@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+//Component responsible for add row in top list
+
 class ProductRow extends Component {
     render() {
         return (
