@@ -1,0 +1,19 @@
+input{
+  margin-bottom: 30px;
+}
+
+
+.resultBlock{
+  height: 6vh;
+  width: 20%;
+  margin-left: 100%;
+  margin-bottom: 15px;
+  transform:translateX(-100%);
+  border-top: 1px solid #999;
+  text-align: right;
+  line-height: 6vh;
+  font-size: 2rem;
+  padding-right: 10px;
+  color: #999;
+}
+
