@@ -11,6 +11,9 @@ class ProductRow extends Component {
                     <td>
                         <input type="checkbox" checked={element.done} onChange={() => this.props.callback(element)} />
                     </td>
+                    <td>
+                        <input type="checkbox" checked={false} onChange={() => this.props.deleterBack(element)} />
+                    </td>
                 </tr> : null)
 
         )
